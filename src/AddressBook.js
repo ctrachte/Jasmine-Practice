@@ -1,5 +1,6 @@
 function AddressBook () {
   this.contacts = [];
+  this.initialComplete;
   this.addContact = (contact) => {
     this.contacts.push(contact);
   };
@@ -13,4 +14,13 @@ function AddressBook () {
     else {return;}
   };
 
+  this.getInitialContacts = (cb) {
+    var self = this;
+    setTimeout(function (){
+      self.initialComplete = true;
+      if (cb) {
+        return cb();
+      }
+    }, 3);
+  }
 };
